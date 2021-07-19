@@ -7,6 +7,10 @@ namespace MoodAnalyserProblem
     public class MoodAnalyser
     {
         string message;
+        public MoodAnalyser()
+        {
+            Console.WriteLine("Default constructor");
+        }
         public MoodAnalyser(string message)
         {
             this.message = message;
