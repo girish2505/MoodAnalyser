@@ -6,7 +6,7 @@ namespace MoodAnalyserProblem
 {
     public class MoodAnalyser
     {
-        string message;
+        public string message;
         public MoodAnalyser()
         {
             Console.WriteLine("Default");

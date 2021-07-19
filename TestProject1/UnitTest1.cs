@@ -168,5 +168,21 @@ namespace TestProject1
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Reflection_Return_Set_Feild_Happy_Message()
+        {
+            string expected = "happy";
+            MoodAnalyserFactory factory = new MoodAnalyserFactory();
+            string actual = factory.SetField("happy", "message");
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Reflection_Return_Set_Feild_Sad_Message()
+        {
+            string expected = "sad";
+            MoodAnalyserFactory factory = new MoodAnalyserFactory();
+            string actual = factory.SetField("sad", "message");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
