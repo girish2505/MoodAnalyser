@@ -84,7 +84,6 @@ namespace TestProject1
                 throw new System.Exception(ex.Message);
             }
         }
-        //Neagtive Case
         [TestMethod]
         public void Reflection_Return_Default_Constructor_No_Class_Found()
         {
@@ -101,7 +100,6 @@ namespace TestProject1
                 Assert.AreEqual(expected, actual.Message);
             }
         }
-        //Neagtive Case
         [TestMethod]
         public void Reflection_Return_Default_Constructor_No_Constructor_Found()
         {
@@ -116,6 +114,41 @@ namespace TestProject1
             catch (CustomException actual)
             {
                 Assert.AreEqual(expected, actual.Message);
+            }
+        }
+        [TestMethod]
+        public void Parameterized_Constructor()
+        {
+            string message = "I am in happy mood";
+            MoodAnalyser expected = new MoodAnalyser(message);
+            object actual = null;
+            try
+            {
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                actual = factory.ParameterizedObject("MoodAnalyserProblem2.MoodAnalyser", "MoodAnalyser", message);
+
+            }
+            catch (CustomException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            actual.Equals(expected);
+        }
+        [TestMethod]
+        public void Parameterized_Class_Invalid()
+        {
+            string message = "I am in happy mood";
+            MoodAnalyser expected = new MoodAnalyser(message);
+            object actual = null;
+            try
+            {
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                actual = factory.ParameterizedObject("MoodAnalyserProblem2.MoodAna", "MoodAnalyser", message);
+
+            }
+            catch (CustomException actual1)
+            {
+                Assert.AreEqual(expected, actual1.Message);
             }
         }
     }
